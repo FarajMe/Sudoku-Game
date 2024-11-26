@@ -1,38 +1,187 @@
+/* Main Container */
 .App {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.eventsDiv {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;            /* Adjusted width for content on the left */
+  background-color: #f4f4f9;
+  margin: 0 auto auto 0;
+  box-sizing: border-box;
+  text-align: left;       /* Align text to the left */
+}
+
+/* Heading */
+h1 {
+  font-family: cursive;
+  font-size: 45px;
+  color: #333;
+  margin: 0;
+  padding: 0 0 20px 0;
+  text-align: left;       /* Align heading text to the left */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.difficulty-level {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* Align to the left */
+  margin-top: 10px;
+}
+
+.difficulty-level span {
+  font-size: 18px;
+  margin-right: 8px;
+  margin-left: 50px;
+  color: #6F7D8D;
+  font-weight: bold;
+}
+
+.difficulty-link {
+  color: #6F7D8D;
+  font-size: 16px;
+  margin: 0 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.difficulty-link:hover {
+  color: #5A7BC0;
+}
+
+/* Board Container */
+.board {
+  display: grid;
+  margin-right: 150px;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0px;
+  width: 460px;
+  height: 443px;
+  background-color: white;
+  border: 2px solid #333;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+}
+
+/* Row and Cell */
+.cell {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.cell:nth-child(3n) {
+  border-bottom: 2px solid #333;
+}
+
+.row:nth-child(3n) .cell {
+  border-right: 2px solid #333;
+}
+
+/* Remove borders for the last row and column */
+.row:nth-last-child(1) .cell {
+  border-right: none;
+}
+
+.cell:nth-last-child(1) {
+  border-bottom: none;
+}
+
+/* Cell input field styling */
+.cell input {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 30px;
+  font-family: cursive;
+  background-color: #f9f9f9;
+  border: none;
+  outline: none;
+  color: #333;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.cell input:focus {
+  background-color: #BBDEFB;
+}
+
+/* Button Container */
+.Btns {
+  display: grid;
+  grid-template-columns: repeat(2, auto); /* Two buttons per row */
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+/* Button Styling */
+.btn {
+  background-color: #5A7BC0;
   color: white;
+  font-size: 18px;
+  font-family: cursive;
+  width: 130px;         /* Fixed width */
+  height: 130px;        /* Fixed height for perfect circle */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.BtnBottom {
+  background-color: #5A7BC0;
+  color: white;
+  font-size: 18px;
+  font-family: cursive;
+  width: 280px;         /* Wider button below */
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 50px;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover {
+  background-color: #849ed4;
+}
+
+button:focus {
+  outline: none;
+}
+
+.difficulty-link:focus {
+  color: #5A7BC0;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .Btns {
+    grid-template-columns: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  h1 {
+    font-size: 28px;
   }
 }
