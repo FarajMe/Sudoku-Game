@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Sudoku Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based Sudoku game built with React and TypeScript. The game features:
+- Dynamic puzzle generation based on difficulty (easy, medium, hard).
+- Puzzle-solving functionality with backtracking algorithm.
+- Real-time validation to check if the puzzle is solved correctly.
+- Stopwatch feature to track time spent on the puzzle.
+- Responsive design optimized for various screen sizes.
 
-## Available Scripts
+## Features:
+- Puzzle generation
+- Difficulty levels (easy, medium, hard)
+- Solve button
+- Validate solution
 
-In the project directory, you can run:
+## How to Run the Application
 
-### `npm start`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/FarajMe/sudoku-game.git
+npm install
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### **c. Approach**
 
-### `npm test`
+Describe your approach to building the game:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```markdown
+## Approach
 
-### `npm run build`
+1. **UI Design**: The UI is built using React components. The main components include the `Board`, `Cell`, and `StopwatchButton`. I used CSS Grid for the board layout and flexbox for responsive button positioning.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Sudoku Logic**: I implemented a backtracking algorithm to solve the Sudoku puzzle. The puzzle generation logic ensures valid solutions and adjusts the number of pre-filled cells based on difficulty.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **State Management**: The application uses React's `useState` to manage the board state, difficulty level, and solved status.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Challenges**: 
+   - Handling the board's dynamic state while ensuring updates are done efficiently was a challenge.
+   - Ensuring the Sudoku validation checks were implemented correctly, especially when managing both row, column, and 3x3 grid constraints.
 
-### `npm run eject`
+5. **Solutions**: 
+   - I used a function to check Sudoku rules (validating rows, columns, and subgrids) for user inputs.
+   - Optimized the board rendering with React's state and rerendering lifecycle to avoid unnecessary re-renders.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Challenges and Solutions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Handling Puzzle Validation**: One challenge was implementing an efficient Sudoku validation function that ensures all constraints are met. I tackled this by breaking the validation into smaller helper functions that check rows, columns, and 3x3 grids.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **State Updates with React**: Managing the board state with React's `useState` hook and ensuring efficient updates when cells change was tricky. To solve this, I made use of immutable data structures (by cloning arrays) to avoid direct mutation of state.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Difficulty Adjustment**: Implementing the logic for generating puzzles with different difficulty levels required adjusting the number of pre-filled cells. I used a function to handle this dynamically based on the selected difficulty.
